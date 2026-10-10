@@ -1,0 +1,24 @@
+services:
+  ts-clock-banner:
+    build: .
+    container_name: ts-clock-banner
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Berlin
+      WIDTH: "468"
+      HEIGHT: "120"
+      SHOW_SECONDS: "false"
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      # Domain, Entrypoint und Resolver an dein Traefik-Setup anpassen
+      - traefik.http.routers.ts-clock.rule=Host(`banner.example.com`)
+      - traefik.http.routers.ts-clock.entrypoints=websecure
+      - traefik.http.routers.ts-clock.tls=true
+      - traefik.http.routers.ts-clock.tls.certresolver=letsencrypt
+      - traefik.http.services.ts-clock.loadbalancer.server.port=8080
+
+networks:
+  traefik:
+    external: true # Name deines Traefik-Netzwerks
