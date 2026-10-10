@@ -1,0 +1,4 @@
+.git
+.github
+*.png
+docker-compose*.yml

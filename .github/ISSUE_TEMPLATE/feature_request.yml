@@ -1,0 +1,19 @@
+name: Feature-Wunsch
+description: Eine Idee oder Verbesserung vorschlagen
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Was wünschst du dir?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Wofür brauchst du das?
+  - type: textarea
+    id: alt
+    attributes:
+      label: Alternativen
+      description: Gibt es Workarounds, die du schon probiert hast?

@@ -1,0 +1,36 @@
+name: Fehlerbericht
+description: Etwas funktioniert nicht wie erwartet
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Was ist passiert?
+      description: Beschreibe den Fehler und was du stattdessen erwartet hast.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zum Nachstellen
+      placeholder: |
+        1. Container starten mit ...
+        2. URL aufrufen ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Image-Tag / Version
+      placeholder: latest oder v1.0.0
+  - type: textarea
+    id: compose
+    attributes:
+      label: Compose-Konfiguration
+      description: Bitte ohne Passwörter oder Tokens.
+      render: yaml
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      render: shell

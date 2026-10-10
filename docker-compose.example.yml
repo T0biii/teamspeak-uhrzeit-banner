@@ -1,6 +1,7 @@
 services:
   ts-clock-banner:
-    build: .
+    # Image-Name ist komplett kleingeschrieben
+    image: ghcr.io/t0biii/teamspeak-uhrzeit-banner:latest
     container_name: ts-clock-banner
     restart: unless-stopped
     environment:
@@ -22,3 +23,5 @@ services:
 networks:
   traefik:
     external: true # Name deines Traefik-Netzwerks
+
+# Banner-URL im TeamSpeak-Server (Banner Gfx URL): https://banner.example.com/banner.png
